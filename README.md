@@ -33,11 +33,16 @@ project-root
 Before running the project, ensure the following dependencies are installed:
 
 ```bash
-pip install fastapi==0.88.0
-pip install uvicorn==0.18.3
-pip install pillow==9.3.0
-pip install torch==1.12.1 torchvision==0.13.1
-pip install python-multipart
+!pip install matplotlib==3.6.2
+!pip install pandas==1.5.3
+!pip install torch==1.13.1
+!pip install torchvision==0.14.1
+!pip install tqdm==4.64.1
+!pip install requests
+!pip install fastapi==0.88.0
+!pip install uvicorn==0.18.3
+!pip install pillow==9.3.0
+!pip install python-multipart==0.0.5
 ```
 
 ### 2. Project Execution Steps
@@ -45,10 +50,7 @@ pip install python-multipart
 #### Step 1: Train the Model
 Run `kmnistTraing.ipynb` in the project’s root directory to train the model. The trained model will be saved as `checkpoints/best_model1.pth`.
 
-#### Step 2: Extract Test Images
-Run `image_loader.ipynb` to download and extract the Kuzushiji-49 dataset images and store them in the `kuzushiji49_images` folder, including sample images for testing the API.
-
-#### Step 3: Start the Web API
+#### Step 2: Start the Web API
 
 1. First, check if port 8000 is in use to ensure it is free. To find any processes using port 8000 (Linux or MacOS), run:
 
@@ -70,12 +72,16 @@ Run `image_loader.ipynb` to download and extract the Kuzushiji-49 dataset images
 
    Once started, the API will be available at `http://127.0.0.1:8000`.
 
-#### Step 4: Test the Web API
+#### Step 3: Test the Web API
 
 In another terminal, use the following `curl` command to test the API endpoint:
 
 ```bash
-curl -X POST "http://127.0.0.1:8000/predict" -F "file=@path/to/your/test_image.png"
+curl -X POST "http://127.0.0.1:8000/predict_batch" \
+-F "files=@path/to/image1.png" \
+-F "files=@path/to/image2.png" \
+-F "files=@path/to/image3.png"
+
 ```
 
 - `file=@path/to/your/test_image.png`: Replace with the path to the image you want to test.
