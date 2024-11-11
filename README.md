@@ -95,10 +95,19 @@ curl -X POST "http://127.0.0.1:8000/predict_batch" \
 2. **Execution Order**: Run `kmnistTraing.ipynb` to generate the trained model, then `image_loader.ipynb` to extract test images, and finally start `webapi.py` to run the API.
 3. **Batch Testing**: The `webapi.py` script supports batch image upload and prediction. Refer to FastAPI documentation for further testing details.
 4. **Web API Results Display**:
+
+   | Specification     | Detail                                          |
+   |-------------------|-------------------------------------------------|
+   | **Endpoint URL**  | `http://127.0.0.1:8000/predict_batch`           |
+   | **Method**        | `POST`                                          |
+   | **Input Parameter** | `files` (multiple image files, `multipart/form-data`) |
+   | **Output**        | JSON array of predictions, e.g., `"predictions": [3, 8, 3]` |
+   | **Error Handling** | JSON error messages for missing fields or invalid formats |
+
+
    ![Terminal Command Example](./data/result_example.png)
 
 ## Future Improvements
 
 - **Pending Items**: Due to time constraints, some model parameter tuning has not been fully explored.
 - **Future Enhancements**: In future versions, deeper network architectures and optimized hyperparameter configurations could be introduced to further improve model accuracy.
-
