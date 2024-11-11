@@ -9,12 +9,8 @@ This project utilizes the Kuzushiji-49 dataset to train a convolutional neural n
 project-root
 ├── checkpoints              # Directory for saving the trained model
 ├── data                     # Directory for storing raw Kuzushiji-49 dataset
-├── image_loader.ipynb       # Notebook to download and extract test images
-├── kmnistTraing.ipynb       # Model training script
-├── kuzushiji49_data.npz     # Compressed file of Kuzushiji-49 dataset
-├── kuzushiji49_images       # Directory for all extracted images
-├── kuzushiji49_test_images  # Directory for test images extracted from dataset
-├── kuzushiji49_train_images # Directory for train images extracted from dataset
+├── MFkmnist.ipynb           # Notebook for additional experiments or analysis
+├── predicted_images         # Directory for saving predicted images example
 ├── __pycache__              # Python cache directory
 ├── README.md                # Project documentation
 └── webapi.py                # Web API implementation
@@ -81,6 +77,12 @@ curl -X POST "http://127.0.0.1:8000/predict_batch" \
 -F "files=@path/to/image1.png" \
 -F "files=@path/to/image2.png" \
 -F "files=@path/to/image3.png"
+''' for example 
+curl -X POST "http://127.0.0.1:8000/predict_batch" \
+-F "files=@predicted_images/image_2_true_3_pred_3.png" \
+-F "files=@predicted_images/image_3_true_8_pred_8.png" \
+-F "files=@predicted_images/image_5_true_3_pred_3.png"
+'''
 
 ```
 
@@ -92,6 +94,8 @@ curl -X POST "http://127.0.0.1:8000/predict_batch" \
 1. **Port Check**: Ensure port 8000 is available before starting the API.
 2. **Execution Order**: Run `kmnistTraing.ipynb` to generate the trained model, then `image_loader.ipynb` to extract test images, and finally start `webapi.py` to run the API.
 3. **Batch Testing**: The `webapi.py` script supports batch image upload and prediction. Refer to FastAPI documentation for further testing details.
+4. **Web API Results Display**:
+   ![Terminal Command Example](./data/result_example.png)
 
 ## Future Improvements
 
