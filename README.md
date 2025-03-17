@@ -1,6 +1,7 @@
-### リンクを間違えてしまい、大変申し訳ありません。もし「Learning Journal on Building Autonomous Driving Simulation Environments Using EMerNeRF」にご興味がございましたら、以下のリンクをクリックしてください。
+<!--### リンクを間違えてしまい、大変申し訳ありません。もし「Learning Journal on Building Autonomous Driving Simulation Environments Using EMerNeRF」にご興味がございましたら、以下のリンクをクリックしてください。
 https://drive.google.com/file/d/1dh-5X2x4w-XZwqOuDzji7oe-8B3ByfXQ/view?usp=sharing
----
+--- --> 
+
 # Hiragana Character Classification Project
 
 
